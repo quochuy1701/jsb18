@@ -67,13 +67,13 @@ function timSoduongnhonhat() {
 document.querySelector("#btnTinh3").onclick = timSoduongnhonhat;
 //bài 5
 function timSochancuoicung() {
-    var soChancuoicung= 0
+    var soChancuoicung = 0
     for (var i = 1; i < numArray.length; i++) {
         // kiểm tra số còn lại có lớn hơn max 
-        if (numArray[i] %2 ==0) {
-            soChancuoicung=numArray[i];
+        if (numArray[i] % 2 == 0) {
+            soChancuoicung = numArray[i];
         }
-        else{
+        else {
             document.getElementById("txtThongbao4").innerHTML = "-1"
         }
     }
@@ -114,17 +114,44 @@ function sapXep() {
 }
 document.getElementById("btnTinh6").onclick = sapXep
 //bài 8
+function kiemtraSonguyento(soNguyento) {
+    var kiemTra = true
+    if (soNguyento < 2) {
+        kiemTra = false
+        return kiemTra
+    } else if (soNguyento == 2) {
+        kiemTra = true
+        return kiemTra
+    } else if (soNguyento % 2 == 0) {
+        kiemTra = false
+        return kiemTra
+    }
+    else {
+        for (var i = 2; i <= soNguyento-1; i++) {
+            if (soNguyento % i == 0) {
+                kiemTra = false
+                return kiemTra
+            }else{
+                return kiemTra
+            }
+
+        }
+    }
+
+}
 function timSonguyento() {
-    var soNguyento = 0
+    var ketqua = 0
+    var kiemTra = true
     for (var i = 0; i < numArray.length; i++) {
-        if (numArray[i] % 1 == 0 && numArray[i] % numArray[i] == 0) {
-            soNguyento = numArray[i]
+        kiemTra = kiemtraSonguyento(numArray[i])
+        if (kiemTra) {
+            ketqua = numArray[i]
+            document.getElementById("txtThongbao7").innerHTML = ketqua;
             break;
-        }else{
+        } else {
             document.getElementById("txtThongbao7").innerHTML = "-1";
         }
     }
-    document.getElementById("txtThongbao7").innerHTML = soNguyento;
 }
 document.querySelector("#btnTinh7").onclick = timSonguyento;
 //bài 9
@@ -132,8 +159,8 @@ function demSonguyen() {
     var countint = 0
     for (var i = 0; i < demArray.length; i++) {
         // kiểm tra số còn lại có lớn hơn max 
-        if (Number.isInteger(demArray[i])==true) {
-           countint++;
+        if (Number.isInteger(demArray[i]) == true) {
+            countint++;
         }
     }
     document.getElementById("txtThongbao8").innerHTML = "Số nguyên : " + countint
@@ -152,21 +179,21 @@ document.querySelector("#btnTinh88").onclick = themSo1;
 //bài 10
 function soSanh() {
     var countduong = 0
-    var countam =0
+    var countam = 0
     for (var i = 0; i < numArray.length; i++) {
         // kiểm tra số còn lại có lớn hơn max 
-        if (numArray[i] >=0)  {
-           countduong++;
-        }else {
+        if (numArray[i] >= 0) {
+            countduong++;
+        } else {
             countam++;
         }
     }
-    if (countam>countduong) {
+    if (countam > countduong) {
         document.getElementById("txtThongbao9").innerHTML = "Số âm > Số dương "
-    }else if (countam<countduong){
+    } else if (countam < countduong) {
         document.getElementById("txtThongbao9").innerHTML = "Số âm < Số dương "
-    }else{
+    } else {
         document.getElementById("txtThongbao9").innerHTML = "Số âm = Số dương "
     }
 }
-document.querySelector("#btnTinh9").onclick =  soSanh;
+document.querySelector("#btnTinh9").onclick = soSanh;
