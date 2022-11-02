@@ -86,7 +86,7 @@ function doiCho() {
     var viTri1 = Number(document.getElementById("num1").value)
     var tamp = numArray[viTri1]
     numArray[viTri1] = numArray[viTri2];
-    numArray[2] = tamp
+    numArray[viTri2] = tamp
     document.getElementById("txtThongbao5").innerHTML = "mảng sau khi đổi là : " + numArray;
 }
 document.querySelector("#btnTinh5").onclick = doiCho;
